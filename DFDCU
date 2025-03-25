@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; }
+        h1, h2 { color: #333; }
+        .video-container { margin: 20px 0; }
+        .image-container img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Showcase Page</h1>
+    <p>Here are some videos, images, and details for you to review.</p>
+    
+    <h2>Videos</h2>
+    <div class="video-container">
+        <p><a href="https://www.youtube.com/watch?v=example1" target="_blank">Watch Video 1</a></p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+        <p><a href="https://vimeo.com/example2" target="_blank">Watch Video 2</a></p>
+        <iframe src="https://player.vimeo.com/video/example2" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <h2>Images</h2>
+    <div class="image-container">
+        <img src="https://via.placeholder.com/600" alt="Sample Image">
+        <p>Caption for image 1</p>
+    </div>
+    <div class="image-container">
+        <img src="https://via.placeholder.com/600" alt="Sample Image 2">
+        <p>Caption for image 2</p>
+    </div>
+    
+    <h2>Additional Information</h2>
+    <p>Feel free to reach out for more details. You can customize this text to provide any necessary context.</p>
+</body>
+</html>
