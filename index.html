@@ -29,10 +29,21 @@
             transform: scale(1.02);
             box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
         .video-container iframe {
-            border-radius: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 800px;
+            height: 100%;
+            border-radius: 12px;
+            background-color: #1e1e1f;
         }
         .image-container img {
             border-radius: 12px;
@@ -54,7 +65,7 @@
     </style>
 </head>
 <body class="bg-black py-12">
-    <div class="container mx-auto px-4 max-w-4xl">
+    <div class="container mx-auto px-4 max-w-6xl">
         <header class="text-center mb-12">
             <h1 class="text-4xl font-bold text-white mb-4">Marketing Showcase</h1>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -62,100 +73,215 @@
             </p>
         </header>
 
-        <section class="mb-12">
+        <section class="mb-16">
             <h2 class="section-title text-2xl mb-6">Featured Videos</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
                 <div class="card p-6">
-                    <div class="video-container mb-4">
+                    <div class="video-container">
                         <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            src="https://www.youtube.com/embed/video1" 
                             title="Marketing Video 1" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen
+                            class="w-full"
                         ></iframe>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-white">Campaign Highlight 1</h3>
-                    <p class="text-gray-400">A brief description of the marketing campaign and its key achievements.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Campaign Video 1</h3>
+                    <p class="text-gray-400">Innovative digital marketing campaign showcasing brand evolution.</p>
                 </div>
+
+                <!-- Video 2 -->
                 <div class="card p-6">
-                    <div class="video-container mb-4">
+                    <div class="video-container">
                         <iframe 
-                            src="https://www.behance.net/embed/project/28643327?ilo0=1" 
-                            title="Marketing Project 2"
+                            src="https://www.youtube.com/embed/video2" 
+                            title="Marketing Video 2" 
                             frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen
-                            loading="lazy"
+                            class="w-full"
                         ></iframe>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-white">Project Showcase 2</h3>
-                    <p class="text-gray-400">Another impactful marketing project with innovative design and strategic approach.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Product Launch</h3>
+                    <p class="text-gray-400">Strategic product launch campaign with measurable results.</p>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="card p-6">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/video3" 
+                            title="Marketing Video 3" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="w-full"
+                        ></iframe>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Brand Story</h3>
+                    <p class="text-gray-400">Compelling brand storytelling through visual narrative.</p>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="card p-6">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/video4" 
+                            title="Marketing Video 4" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="w-full"
+                        ></iframe>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Social Campaign</h3>
+                    <p class="text-gray-400">Viral social media marketing campaign results.</p>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="card p-6">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/video5" 
+                            title="Marketing Video 5" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="w-full"
+                        ></iframe>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Event Highlight</h3>
+                    <p class="text-gray-400">Major event marketing and execution showcase.</p>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="card p-6">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/video6" 
+                            title="Marketing Video 6" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="w-full"
+                        ></iframe>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Customer Story</h3>
+                    <p class="text-gray-400">Customer success story and testimonial campaign.</p>
+                </div>
+            </div>
+        </section>
+                <section class="mb-16">
+            <h2 class="section-title text-2xl mb-6">Project Gallery</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Image 1 -->
+                <div class="card p-4 image-container">
+                    <img src="/path/to/image1.jpg" alt="Marketing Image 1" class="w-full h-48 object-cover">
+                    <h3 class="text-lg font-semibold mt-4 text-white">Brand Identity Design</h3>
+                    <p class="text-gray-400 text-sm">Complete brand identity redesign for major client.</p>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="card p-4 image-container">
+                    <img src="/path/to/image2.jpg" alt="Marketing Image 2" class="w-full h-48 object-cover">
+                    <h3 class="text-lg font-semibold mt-4 text-white">Campaign Visuals</h3>
+                    <p class="text-gray-400 text-sm">Integrated marketing campaign visual assets.</p>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="card p-4 image-container">
+                    <img src="/path/to/image3.jpg" alt="Marketing Image 3" class="w-full h-48 object-cover">
+                    <h3 class="text-lg font-semibold mt-4 text-white">Social Media Package</h3>
+                    <p class="text-gray-400 text-sm">Comprehensive social media marketing materials.</p>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="card p-4 image-container">
+                    <img src="/path/to/image4.jpg" alt="Marketing Image 4" class="w-full h-48 object-cover">
+                    <h3 class="text-lg font-semibold mt-4 text-white">Print Materials</h3>
+                    <p class="text-gray-400 text-sm">High-impact print marketing collateral.</p>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="card p-4 image-container">
+                    <img src="/path/to/image5.jpg" alt="Marketing Image 5" class="w-full h-48 object-cover">
+                    <h3 class="text-lg font-semibold mt-4 text-white">Digital Ads</h3>
+                    <p class="text-gray-400 text-sm">Performance-driven digital advertising creative.</p>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="card p-4 image-container">
+                    <img src="/path/to/image6.jpg" alt="Marketing Image 6" class="w-full h-48 object-cover">
+                    <h3 class="text-lg font-semibold mt-4 text-white">Event Branding</h3>
+                    <p class="text-gray-400 text-sm">Complete event branding and marketing materials.</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2 class="section-title text-2xl mb-6">Image Gallery</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card p-4 image-container">
-                    <img src="/api/placeholder/400/300" alt="Marketing Image 1" class="w-full h-48 object-cover">
-                    <h3 class="text-lg font-semibold mt-4 text-white">Project Title 1</h3>
-                    <p class="text-gray-400 text-sm">Short description of the marketing visual.</p>
-                </div>
-                <div class="card p-4 image-container">
-                    <img src="/api/placeholder/400/300" alt="Marketing Image 2" class="w-full h-48 object-cover">
-                    <h3 class="text-lg font-semibold mt-4 text-white">Project Title 2</h3>
-                    <p class="text-gray-400 text-sm">Short description of the marketing visual.</p>
-                </div>
-                <div class="card p-4 image-container">
-                    <img src="/api/placeholder/400/300" alt="Marketing Image 3" class="w-full h-48 object-cover">
-                    <h3 class="text-lg font-semibold mt-4 text-white">Project Title 3</h3>
-                    <p class="text-gray-400 text-sm">Short description of the marketing visual.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="mt-12">
+        <section class="mt-16">
             <h2 class="section-title text-2xl mb-6">Featured Articles</h2>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Article 1 -->
                 <div class="card p-6">
                     <div class="mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-purple-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Innovative Marketing Strategies</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Digital Marketing Trends 2024</h3>
                     </div>
-                    <p class="text-gray-400 text-center mb-4">A deep dive into cutting-edge marketing techniques that drive engagement and results.</p>
+                    <p class="text-gray-400 text-center mb-4">Exploring emerging trends shaping the future of digital marketing.</p>
                     <div class="text-center">
                         <a href="#" class="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300">
                             Read Article
                         </a>
                     </div>
                 </div>
+
+                <!-- Article 2 -->
                 <div class="card p-6">
                     <div class="mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Digital Marketing Trends</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Content Strategy Guide</h3>
                     </div>
-                    <p class="text-gray-400 text-center mb-4">Exploring the latest digital marketing trends and how they can transform your business approach.</p>
+                    <p class="text-gray-400 text-center mb-4">Comprehensive guide to building effective content strategies.</p>
                     <div class="text-center">
                         <a href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
                             Read Article
                         </a>
                     </div>
                 </div>
+
+                <!-- Article 3 -->
                 <div class="card p-6">
-                    <div className="mb-4">
+                    <div class="mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Brand Storytelling Mastery</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Social Media Marketing</h3>
                     </div>
-                    <p class="text-gray-400 text-center mb-4">Unveiling the art of crafting compelling brand narratives that resonate with audiences.</p>
+                    <p class="text-gray-400 text-center mb-4">Mastering social media marketing in today's digital landscape.</p>
                     <div class="text-center">
                         <a href="#" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="card p-6">
+                    <div class="mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2 text-white text-center">Brand Storytelling</h3>
+                    </div>
+                    <p class="text-gray-400 text-center mb-4">Creating compelling brand narratives that connect with audiences.</p>
+                    <div class="text-center">
+                        <a href="#" class="inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
                             Read Article
                         </a>
                     </div>
@@ -163,7 +289,7 @@
             </div>
         </section>
 
-        <footer class="text-center mt-12 pt-8 border-t border-gray-800">
+        <footer class="text-center mt-16 pt-8 border-t border-gray-800">
             <p class="text-gray-500">© 2024 Marketing Showcase. All rights reserved.</p>
         </footer>
     </div>
