@@ -66,20 +66,9 @@
         .video-thumbnail:hover::after {
             opacity: 1;
         }
-        .video-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1001;
-            width: 90%;
-            max-width: 1000px;
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .video-modal .video-container {
-            margin-bottom: 0;
+        /* Hide the play button when iframe is present */
+        .video-thumbnail.playing::after {
+            display: none;
         }
         .image-container img {
             border-radius: 12px;
@@ -287,7 +276,8 @@
                 </div>
             </div>
         </section>
-                <section class="mt-16">
+
+        <section class="mt-16">
             <h2 class="section-title text-2xl mb-6">Featured Articles</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Article 1 -->
@@ -355,30 +345,16 @@
                 </div>
             </div>
         </section>
-
-        <footer class="text-center mt-16 pt-8 border-t border-gray-800">
+                <footer class="text-center mt-16 pt-8 border-t border-gray-800">
             <p class="text-gray-500">© 2025 YBS Marketing Showcase. All rights reserved.</p>
         </footer>
     </div>
-        <!-- Modals -->
+
+    <!-- Modals (just for images) -->
     <div id="overlay" class="overlay hidden"></div>
     <img id="expandedImage" src="" alt="Expanded Image" class="expanded-image hidden">
-    
-    <div id="videoModal" class="video-modal hidden">
-        <div class="video-container">
-            <iframe 
-                id="videoPlayer"
-                src="" 
-                title="Video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen
-            ></iframe>
-        </div>
-    </div>
 
     <script>
-        // Original modal functionality
         document.addEventListener('DOMContentLoaded', function () {
             // Image modal functionality
             var images = document.querySelectorAll('.image-container img');
@@ -393,47 +369,18 @@
                 });
             });
 
-            // Video modal functionality
-            const videoThumbnails = document.querySelectorAll('.video-thumbnail > *[data-video-type]');
-            const videoModal = document.getElementById('videoModal');
-            const videoPlayer = document.getElementById('videoPlayer');
-
-            videoThumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    const videoId = this.dataset.videoId;
-                    const videoType = this.dataset.videoType;
-                    
-                    let videoSrc = '';
-                    if (videoType === 'youtube') {
-                        videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                    } else if (videoType === 'behance') {
-                        videoSrc = `https://www.behance.net/embed/project/${videoId}?ilo0=1`;
-                    }
-
-                    videoPlayer.src = videoSrc;
-                    videoModal.classList.remove('hidden');
-                    overlay.classList.remove('hidden');
-                });
-            });
-
-            // Closing modals
+            // Closing image modal
             overlay.addEventListener('click', function() {
                 expandedImage.classList.add('hidden');
-                videoModal.classList.add('hidden');
                 overlay.classList.add('hidden');
-                videoPlayer.src = ''; // Stop video playback
             });
 
             expandedImage.addEventListener('click', function() {
                 expandedImage.classList.add('hidden');
                 overlay.classList.add('hidden');
             });
-        });
-    </script>
 
-    <!-- New embed handling script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+            // Video embed functionality
             document.querySelectorAll(".video-thumbnail").forEach(thumbnail => {
                 thumbnail.addEventListener("click", function () {
                     const videoElement = this.querySelector("img, div");
@@ -455,6 +402,7 @@
                     videoIframe.setAttribute("frameborder", "0");
                     videoIframe.classList.add("w-full", "h-48", "rounded-xl");
 
+                    this.classList.add('playing'); // Add playing class before clearing innerHTML
                     this.innerHTML = ""; // Remove thumbnail
                     this.appendChild(videoIframe); // Insert video
                 });
