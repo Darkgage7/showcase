@@ -185,12 +185,12 @@
                             src="https://img.youtube.com/vi/xVnHZ5SF1Jg/maxresdefault.jpg" 
                             alt="Marketing Video 2" 
                             class="w-full h-48 object-cover rounded-xl"
-                            data-video-id="rSm8wq0YIuc"
+                            data-video-id="xVnHZ5SF1Jg"
                             data-video-type="youtube"
                         >
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-white">Campaign Video 2</h3>
-                    <p class="text-gray-400">Innovative digital marketing campaign showcasing brand evolution.</p>
+                    <p class="text-gray-400">Strategic product launch campaign highlights.</p>
                 </div>
 
                 <!-- Video 4 (Behance) -->
@@ -207,40 +207,41 @@
                         </div>
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-white">Behance Project 2</h3>
-                    <p class="text-gray-400">Creative project showcase from Behance.</p>
+                    <p class="text-gray-400">Interactive design showcase from Behance.</p>
                 </div>
 
                 <!-- Video 5 (YouTube) -->
                 <div class="card p-6">
                     <div class="video-thumbnail mb-4">
                         <img 
-                            src="https://img.youtube.com/vi/uvpbNpSbsmg/maxresdefault.jpg" 
+                            src="https://img.youtube.com/vi/uvpbSbsmg/maxresdefault.jpg" 
                             alt="Marketing Video 3" 
                             class="w-full h-48 object-cover rounded-xl"
-                            data-video-id="rSm8wq0YIuc"
+                            data-video-id="uvpbSbsmg"
                             data-video-type="youtube"
                         >
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-white">Campaign Video 3</h3>
-                    <p class="text-gray-400">Innovative digital marketing campaign showcasing brand evolution.</p>
+                    <p class="text-gray-400">Digital marketing strategy overview.</p>
                 </div>
 
-                <!-- Video 6 (Behance) -->
-                    <div class="card p-6">
+                <!-- Video 6 (YouTube) -->
+                <div class="card p-6">
                     <div class="video-thumbnail mb-4">
                         <img 
                             src="https://img.youtube.com/vi/Dep-KN94Rf4/maxresdefault.jpg" 
-                            alt="Marketing Video 3" 
+                            alt="Marketing Video 4" 
                             class="w-full h-48 object-cover rounded-xl"
-                            data-video-id="rSm8wq0YIuc"
+                            data-video-id="Dep-KN94Rf4"
                             data-video-type="youtube"
                         >
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-white">Campaign Video 3</h3>
-                    <p class="text-gray-400">Innovative digital marketing campaign showcasing brand evolution.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Campaign Video 4</h3>
+                    <p class="text-gray-400">Brand storytelling through video content.</p>
                 </div>
+            </div>
         </section>
-             <section class="mb-16">
+                <section class="mb-16">
             <h2 class="section-title text-2xl mb-6">Project Gallery</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Image 1 -->
@@ -286,7 +287,7 @@
                 </div>
             </div>
         </section>
-             <section class="mt-16">
+                <section class="mt-16">
             <h2 class="section-title text-2xl mb-6">Featured Articles</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Article 1 -->
@@ -358,74 +359,107 @@
         <footer class="text-center mt-16 pt-8 border-t border-gray-800">
             <p class="text-gray-500">© 2025 YBS Marketing Showcase. All rights reserved.</p>
         </footer>
-    </div>    <!-- Modals -->
-    <div id="overlay" class="overlay hidden"></div>
-<img id="expandedImage" src="" alt="Expanded Image" class="expanded-image hidden">
-
-<div id="videoModal" class="video-modal hidden">
-    <div class="video-container">
-        <iframe 
-            id="videoPlayer"
-            src="" 
-            title="Video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-        ></iframe>
     </div>
-</div>
+        <!-- Modals -->
+    <div id="overlay" class="overlay hidden"></div>
+    <img id="expandedImage" src="" alt="Expanded Image" class="expanded-image hidden">
+    
+    <div id="videoModal" class="video-modal hidden">
+        <div class="video-container">
+            <iframe 
+                id="videoPlayer"
+                src="" 
+                title="Video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Image modal functionality
-        var images = document.querySelectorAll('.image-container img');
-        var overlay = document.getElementById('overlay');
-        var expandedImage = document.getElementById('expandedImage');
+    <script>
+        // Original modal functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Image modal functionality
+            var images = document.querySelectorAll('.image-container img');
+            var overlay = document.getElementById('overlay');
+            var expandedImage = document.getElementById('expandedImage');
 
-        images.forEach(function (image) {
-            image.addEventListener('click', function () {
-                expandedImage.src = image.src;
-                expandedImage.classList.remove('hidden');
-                overlay.classList.remove('hidden');
+            images.forEach(function (image) {
+                image.addEventListener('click', function () {
+                    expandedImage.src = image.src;
+                    expandedImage.classList.remove('hidden');
+                    overlay.classList.remove('hidden');
+                });
+            });
+
+            // Video modal functionality
+            const videoThumbnails = document.querySelectorAll('.video-thumbnail > *[data-video-type]');
+            const videoModal = document.getElementById('videoModal');
+            const videoPlayer = document.getElementById('videoPlayer');
+
+            videoThumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const videoId = this.dataset.videoId;
+                    const videoType = this.dataset.videoType;
+                    
+                    let videoSrc = '';
+                    if (videoType === 'youtube') {
+                        videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    } else if (videoType === 'behance') {
+                        videoSrc = `https://www.behance.net/embed/project/${videoId}?ilo0=1`;
+                    }
+
+                    videoPlayer.src = videoSrc;
+                    videoModal.classList.remove('hidden');
+                    overlay.classList.remove('hidden');
+                });
+            });
+
+            // Closing modals
+            overlay.addEventListener('click', function() {
+                expandedImage.classList.add('hidden');
+                videoModal.classList.add('hidden');
+                overlay.classList.add('hidden');
+                videoPlayer.src = ''; // Stop video playback
+            });
+
+            expandedImage.addEventListener('click', function() {
+                expandedImage.classList.add('hidden');
+                overlay.classList.add('hidden');
             });
         });
+    </script>
 
-        // Video modal functionality
-        const videoThumbnails = document.querySelectorAll('.video-thumbnail > *[data-video-type]');
-        const videoModal = document.getElementById('videoModal');
-        const videoPlayer = document.getElementById('videoPlayer');
+    <!-- New embed handling script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".video-thumbnail").forEach(thumbnail => {
+                thumbnail.addEventListener("click", function () {
+                    const videoElement = this.querySelector("img, div");
+                    const videoId = videoElement.getAttribute("data-video-id");
+                    const videoType = videoElement.getAttribute("data-video-type");
 
-        videoThumbnails.forEach(thumbnail => {
-            thumbnail.addEventListener('click', function() {
-                const videoId = this.dataset.videoId;
-                const videoType = this.dataset.videoType;
+                    if (!videoId || !videoType) return;
 
-                let videoSrc = '';
-                if (videoType === 'youtube') {
-                    videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                } else if (videoType === 'behance') {
-                    videoSrc = `https://www.behance.net/embed/project/${videoId}?ilo0=1`;
-                }
+                    let embedUrl = "";
+                    if (videoType === "youtube") {
+                        embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    } else if (videoType === "behance") {
+                        embedUrl = `https://www.behance.net/embed/project/${videoId}`;
+                    }
 
-                videoPlayer.src = videoSrc;
-                videoModal.classList.remove('hidden');
-                overlay.classList.remove('hidden');
+                    const videoIframe = document.createElement("iframe");
+                    videoIframe.setAttribute("src", embedUrl);
+                    videoIframe.setAttribute("allowfullscreen", "true");
+                    videoIframe.setAttribute("frameborder", "0");
+                    videoIframe.classList.add("w-full", "h-48", "rounded-xl");
+
+                    this.innerHTML = ""; // Remove thumbnail
+                    this.appendChild(videoIframe); // Insert video
+                });
             });
         });
-
-        // Closing modals
-        overlay.addEventListener('click', function() {
-            expandedImage.classList.add('hidden');
-            videoModal.classList.add('hidden');
-            overlay.classList.add('hidden');
-            videoPlayer.src = ''; // Stop video playback
-        });
-
-        expandedImage.addEventListener('click', function() {
-            expandedImage.classList.add('hidden');
-            overlay.classList.add('hidden');
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
