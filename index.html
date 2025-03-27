@@ -360,73 +360,72 @@
         </footer>
     </div>    <!-- Modals -->
     <div id="overlay" class="overlay hidden"></div>
-    <img id="expandedImage" src="" alt="Expanded Image" class="expanded-image hidden">
-    
-    <div id="videoModal" class="video-modal hidden">
-        <div class="video-container">
-            <iframe 
-                id="videoPlayer"
-                src="" 
-                title="Video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen
-            ></iframe>
-        </div>
+<img id="expandedImage" src="" alt="Expanded Image" class="expanded-image hidden">
+
+<div id="videoModal" class="video-modal hidden">
+    <div class="video-container">
+        <iframe 
+            id="videoPlayer"
+            src="" 
+            title="Video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+        ></iframe>
     </div>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Image modal functionality
-            var images = document.querySelectorAll('.image-container img');
-            var overlay = document.getElementById('overlay');
-            var expandedImage = document.getElementById('expandedImage');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Image modal functionality
+        var images = document.querySelectorAll('.image-container img');
+        var overlay = document.getElementById('overlay');
+        var expandedImage = document.getElementById('expandedImage');
 
-            images.forEach(function (image) {
-                image.addEventListener('click', function () {
-                    expandedImage.src = image.src;
-                    expandedImage.classList.remove('hidden');
-                    overlay.classList.remove('hidden');
-                });
-            });
-
-            // Video modal functionality
-            const videoThumbnails = document.querySelectorAll('.video-thumbnail > *[data-video-type]');
-            const videoModal = document.getElementById('videoModal');
-            const videoPlayer = document.getElementById('videoPlayer');
-
-            videoThumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    const videoId = this.dataset.videoId;
-                    const videoType = this.dataset.videoType;
-                    
-                    let videoSrc = '';
-                    if (videoType === 'youtube') {
-                        videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                    } else if (videoType === 'behance') {
-                        videoSrc = `https://www.behance.net/embed/project/${videoId}?ilo0=1`;
-                    }
-
-                    videoPlayer.src = videoSrc;
-                    videoModal.classList.remove('hidden');
-                    overlay.classList.remove('hidden');
-                });
-            });
-
-            // Closing modals
-            overlay.addEventListener('click', function() {
-                expandedImage.classList.add('hidden');
-                videoModal.classList.add('hidden');
-                overlay.classList.add('hidden');
-                videoPlayer.src = ''; // Stop video playback
-            });
-
-            expandedImage.addEventListener('click', function() {
-                expandedImage.classList.add('hidden');
-                overlay.classList.add('hidden');
+        images.forEach(function (image) {
+            image.addEventListener('click', function () {
+                expandedImage.src = image.src;
+                expandedImage.classList.remove('hidden');
+                overlay.classList.remove('hidden');
             });
         });
-    </script>
+
+        // Video modal functionality
+        const videoThumbnails = document.querySelectorAll('.video-thumbnail > *[data-video-type]');
+        const videoModal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        videoThumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                const videoType = this.dataset.videoType;
+
+                let videoSrc = '';
+                if (videoType === 'youtube') {
+                    videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                } else if (videoType === 'behance') {
+                    videoSrc = `https://www.behance.net/embed/project/${videoId}?ilo0=1`;
+                }
+
+                videoPlayer.src = videoSrc;
+                videoModal.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            });
+        });
+
+        // Closing modals
+        overlay.addEventListener('click', function() {
+            expandedImage.classList.add('hidden');
+            videoModal.classList.add('hidden');
+            overlay.classList.add('hidden');
+            videoPlayer.src = ''; // Stop video playback
+        });
+
+        expandedImage.addEventListener('click', function() {
+            expandedImage.classList.add('hidden');
+            overlay.classList.add('hidden');
+        });
+    });
+</script>
 </body>
 </html>
-    
