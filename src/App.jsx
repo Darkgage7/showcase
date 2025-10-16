@@ -55,7 +55,7 @@ function App() {
 
         {/* Articles Section */}
         <section className="mb-12 sm:mb-16">
-          <h2 className="section-title">Sample Articles</h2>
+          <h2 className="section-title">Sample News Coverage & Awards</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {articles.map((article) => (
               <ArticleCard key={article.id} article={article} />
