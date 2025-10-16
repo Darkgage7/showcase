@@ -1,5 +1,3 @@
-const BASE_URL = import.meta.env.BASE_URL;
-
 export const videos = [
   {
     id: 1,
@@ -45,7 +43,7 @@ export const videos = [
     id: 6,
     title: "K-Pop Integrated Campaign",
     description: "DramaFever Influencer Partnership.",
-    thumbnail: `${BASE_URL}images/original-kpop-campaign.jpg`,
+    thumbnail: "/images/original-kpop-campaign.jpg",
     videoId: "Dep-KN94Rf4",
     type: "youtube"
   }
@@ -56,42 +54,42 @@ export const images = [
     id: 1,
     title: "Swamp Thing Campaign Visuals",
     description: "DCU Original Title Marketing.",
-    src: `${BASE_URL}images/dcu-swamp-thing-campign.jpg`,
+    src: "/images/dcu-swamp-thing-campign.jpg",
     alt: "Swamp Thing Poster"
   },
   {
     id: 2,
     title: "DramaFever Valentines Day Campaign",
     description: "DramaFever Valentine's Day Campaign.",
-    src: `${BASE_URL}images/df-valentines-campaign.png`,
+    src: "/images/df-valentines-campaign.png",
     alt: "DF Valentines Day"
   },
   {
     id: 3,
     title: "DCU Digital Ad",
     description: "Performance-driven digital advertising creative.",
-    src: `${BASE_URL}images/dcu-titans-campaign.jpg`,
+    src: "/images/dcu-titans-campaign.jpg",
     alt: "DCU Titans"
   },
   {
     id: 4,
     title: "DramaFever Platform",
     description: "DramaFever Platform Design.",
-    src: `${BASE_URL}images/df-platform-experience-web.jpg`,
+    src: "/images/df-platform-experience-web.jpg",
     alt: "DF Web Experience"
   },
   {
     id: 5,
     title: "DC Universe Landing Page Experience",
     description: "DC Universe Landing Page Design.",
-    src: `${BASE_URL}images/dcu-landing-page-experience.png`,
+    src: "/images/dcu-landing-page-experience.png",
     alt: "DCU Landing Page"
   },
   {
     id: 6,
     title: "DC Universe Brand Experience",
     description: "Four brand pillars in app experience.",
-    src: `${BASE_URL}images/dcu-brand-identity.png`,
+    src: "/images/dcu-brand-identity.png",
     alt: "DCU Brand Identity"
   }
 ];

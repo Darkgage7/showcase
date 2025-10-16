@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Darkgage7/showcase/issues"
   },
-  "homepage": "https://darkgage7.github.io/showcase/",
+  "homepage": "https://github.com/Darkgage7/showcase#readme",
   "description": "",
   "devDependencies": {
     "@types/react": "^19.1.8",
